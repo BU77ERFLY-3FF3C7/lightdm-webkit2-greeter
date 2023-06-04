@@ -1,9 +1,9 @@
-# lightdm-webkit2-greeter
-[![Latest Release](https://img.shields.io/github/release/Antergos/web-greeter.svg?style=flat-square)](https://github.com/Antergos/web-greeter/releases)  &nbsp;[![CircleCI](https://img.shields.io/circleci/project/Antergos/web-greeter/stable.svg?style=flat-square)](https://circleci.com/gh/Antergos/web-greeter) &nbsp;[![Coverity Scan Build Status](https://img.shields.io/coverity/scan/6871.svg?style=flat-square)](https://scan.coverity.com/projects/antergos-lightdm-webkit2-greeter) &nbsp;[![Theme API Docs](https://img.shields.io/badge/API--Doc-ready-brightgreen.svg?style=flat-square)](https://doclets.io/Antergos/web-greeter/stable) &nbsp;[![AUR Votes](https://img.shields.io/aur/votes/lightdm-webkit2-greeter.svg?maxAge=2592000&style=flat-square)](https://aur.archlinux.org/packages/lightdm-webkit2-greeter)
+# LightDM-webkit2-greeter (forked from [Antergos/web-greeter](https://github.com/antergos/web-greeter/))
 
-## Install It
 
-#### Official Distro Packages
+## Installation
+
+#### Official Distro Packages (Dismissed)
 |Distro|Install Command/Links|
 |:---:|:---:|
 |![antergos][antergos]|`sudo pacman -S lightdm-webkit2-greeter`|
@@ -11,15 +11,15 @@
 #### Unofficial Distro Packages
 |Distro|Install Command/Links|
 |:---:|:---:|
-|![arch][arch]|`yaourt -S lightdm-webkit2-greeter`|
-|![fedora][fedora] |[copr](https://copr.fedorainfracloud.org/coprs/antergos/lightdm-webkit2-greeter/) &nbsp;\|&nbsp; [OBS Repo](https://software.opensuse.org/download.html?project=home:antergos&package=lightdm-webkit2-greeter)|
-|![openSUSE][openSUSE]|[1 Click Install](https://software.opensuse.org/ymp/home:antergos/openSUSE_Leap_42.1/lightdm-webkit2-greeter.ymp?base=openSUSE%3ALeap%3A42.1&query=lightdm-webkit2-greeter) &nbsp;\|&nbsp; [OBS Repo](https://software.opensuse.org/download.html?project=home:antergos&package=lightdm-webkit2-greeter)|
-|![ubuntu][ubuntu]|[OBS Repo](https://software.opensuse.org/download.html?project=home:antergos&package=lightdm-webkit2-greeter)|
+|![arch][arch] ![manjaro][manjaro] ![endeavour][endeavour]|`yay -S lightdm-webkit2-greeter`|
+|![fedora][fedora] |[copr](https://copr.fedorainfracloud.org/coprs/antergos/lightdm-webkit2-greeter/) &nbsp;|
+|![openSUSE][openSUSE]| Not available|
+|![Debian][debian] ![ubuntu][ubuntu]| Not available|
 
-## Build It
+## Building
 
 ### Dependencies
-|                       | ![antergos][antergos] &nbsp;&nbsp; ![arch][arch] | ![debian][debian] &nbsp;&nbsp; ![ubuntu][ubuntu] | ![fedora][fedora]     | ![opensuse][opensuse]  | 
+|                       | ![antergos][antergos] &nbsp; ![arch][arch] &nbsp; ![manjaro][manjaro] &nbsp;![endeavour][endeavour] | ![debian][debian] &nbsp; ![mint][mint] &nbsp; ![ubuntu][ubuntu] &nbsp; ![zorin][zorin] | ![fedora][fedora]     | ![opensuse][opensuse]  | 
 |-----------------------|--------------------------------------------------|--------------------------------------------------|-----------------------|------------------------|
 |**liblightdm-gobject-1** |lightdm                                         |liblightdm-gobject-dev                            | lightdm-gobject-devel | liblightdm-gobject-1-0 |
 |**gtk+ 3**               |gtk3                                            |libgtk-3-0                                        | gtk3                  | gtk3                   |
@@ -27,15 +27,29 @@
 |**dbus-glib-1**          |dbus-glib                                       |libdbus-glib-1-dev                                | dbus-glib             | dbus-1-glib            |
 
 #### Build Deps
-|                   | ![antergos][antergos] &nbsp;&nbsp; ![arch][arch] &nbsp;&nbsp; ![debian][debian] &nbsp;&nbsp; ![ubuntu][ubuntu] &nbsp;&nbsp; ![fedora][fedora] &nbsp;&nbsp; ![opensuse][opensuse] |
+|                   | ![antergos][antergos] &nbsp;&nbsp; ![arch][arch] &nbsp;&nbsp; ![endeavour] &nbsp;&nbsp; ![manjaro] &nbsp;&nbsp; ![debian][debian] &nbsp;&nbsp; ![mint] &nbsp;&nbsp; ![ubuntu][ubuntu] &nbsp;&nbsp; ![zorin] &nbsp;&nbsp; ![fedora][fedora] &nbsp;&nbsp; ![opensuse][opensuse] |
 |-------------------|--------------------------------------------------|
 |**Meson Build System**|meson v0.37+|
 
+#### Antergos / Arch / Manjaro / EndeavourOS
+    sudo pacman -S meson lightdm gtk3 webkit2gtk dbus-glib -y
+
+#### Debian / Ubuntu / Linux Mint / Zorin OS
+    sudo apt install meson liblightdm-gobject-dev libgtk-3-0 libwebkit2gtk-4 0-dev libdbus-glib-1-dev -y
+
+#### Fedora
+    sudo dnf install meson lighdm-gobject-devel gtk3 webkitgtk4 dbus-glib -y
+
+#### OpenSUSE
+    sudo zipper install meson liblightdm-gobject-1-0 gtk3 libwebkit2gtk-4_0-37 dbus-1-glib -y
+
+
 ### How To Build
 ```sh
-git clone https://github.com/Antergos/lightdm-webkit2-greeter.git /tmp/greeter
+git clone https://github.com/MerkeX/lightdm-webkit2-greeter.git /tmp/greeter
 cd /tmp/greeter/build
-git checkout ${LATEST_RELEASE_TAG} # eg. git checkout 2.2
+#git checkout ${LATEST_RELEASE_TAG} # eg. git checkout 2.2
+git checkout stable
 meson --prefix=/usr --libdir=lib ..
 ninja
 ```
@@ -45,20 +59,28 @@ ninja
 sudo ninja install
 ```
 
+#### One liner
+```sh
+git clone https://github.com/Antergos/lightdm-webkit2-greeter.git /tmp/reeter && cd /tmp/greeter/build && git checkout stable && meson --prefix=/usr --libdir=lib .. && ninja && sudo ninja install
+```
+
 ## Theme JavaScript API:
 The greeter exposes a JavaScript API to themes which they must use to interact with the greeter (in order to facilitate the user login process). For more details, check out the [API Documentation](https://doclets.io/Antergos/lightdm-webkit2-greeter/stable). 
 
-
-## Translations
-Translations are managed through [Transifex](https://www.transifex.com/faidoc/antergos/lightdm-webkit2-greeter/).
+Personally, I recommend the [litarvan theme](https://github.com/Litarvan/lightdm-webkit-theme-litarvan).
 
 
-[antergos]: https://antergos.com/distro-logos/logo-square26x26.png "antergos"
-[arch]: https://antergos.com/distro-logos/archlogo26x26.png "arch"
-[fedora]: https://antergos.com/distro-logos/fedora-logo.png "fedora"
-[openSUSE]: https://antergos.com/distro-logos/Geeko-button-bling7.png "openSUSE"
-[ubuntu]: https://antergos.com/distro-logos/ubuntu_orange_hex.png "ubuntu"
-[debian]: https://antergos.com/distro-logos/openlogo-nd-25.png "debian"
+
+[antergos]: /.distro_logo/antergos.png "antergos"
+[arch]: /.distro_logo/arch.png "arch"
+[debian]: /.distro_logo/debian.png "debian"
+[endeavour]: /.distro_logo/endeavour.png "endeavour"
+[fedora]: /.distro_logo/fedora.png "fedora"
+[manjaro]: /.distro_logo/manjaro.png "manjaro"
+[mint]: /.distro_logo/mint.png "mint"
+[openSUSE]: /.distro_logo/opensuse.png "openSUSE"
+[ubuntu]: /.distro_logo/ubuntu.png "ubuntu"
+[zorin]: /.distro_logo/zorin.png "zorin"
 
 [release]: https://img.shields.io/github/release/Antergos/web-greeter.svg?style=flat-square "Latest Release"
 [codacy]: https://img.shields.io/codacy/grade/43c95c8c0e3749b8afa3bfd2b6edf541.svg?style=flat-square "Codacy Grade"
