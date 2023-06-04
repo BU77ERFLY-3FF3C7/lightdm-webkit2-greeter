@@ -1,7 +1,7 @@
-# LightDM-webkit2-greeter (forked from [Antergos/web-greeter](https://github.com/antergos/web-greeter/))
+## LightDM-webkit2-greeter (forked from [Antergos/web-greeter](https://github.com/antergos/web-greeter/))
 
 
-## Installation
+### Installation
 
 #### Official Distro Packages (Dismissed)
 |Distro|Install Command/Links|
@@ -14,9 +14,8 @@
 |![arch][arch] ![manjaro][manjaro] ![endeavour][endeavour]|`yay -S lightdm-webkit2-greeter`|
 |![fedora][fedora] |[copr](https://copr.fedorainfracloud.org/coprs/antergos/lightdm-webkit2-greeter/) &nbsp;|
 |![openSUSE][openSUSE]| Not available|
-|![Debian][debian] ![ubuntu][ubuntu]| Not available|
-
-## Building
+|![Debian][debian] ![ubuntu][ubuntu]| [latest release](https://github.com/MerkeX/Lightdm-webkit2-greeter/releases/download/v2.2.5-1/lightdm-webkit2-greeter_2.2.5-1_amd64.deb)|
+### Building
 
 ### Dependencies
 |                       | ![antergos][antergos] &nbsp; ![arch][arch] &nbsp; ![manjaro][manjaro] &nbsp;![endeavour][endeavour] | ![debian][debian] &nbsp; ![mint][mint] &nbsp; ![ubuntu][ubuntu] &nbsp; ![zorin][zorin] | ![fedora][fedora]     | ![opensuse][opensuse]  | 
