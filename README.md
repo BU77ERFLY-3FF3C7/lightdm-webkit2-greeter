@@ -34,13 +34,14 @@
     sudo pacman -S meson lightdm gtk3 webkit2gtk dbus-glib -y
 
 #### Debian / Ubuntu / Linux Mint / Zorin OS
-    sudo apt install meson liblightdm-gobject-dev libgtk-3-0 libwebkit2gtk-4 0-dev libdbus-glib-1-dev -y
+    sudo apt install meson liblightdm-gobject-dev libgtk-3-0 libwebkit2gtk-4.0-dev libdbus-glib-1-dev -y
 
 #### Fedora
     sudo dnf install meson lighdm-gobject-devel gtk3 webkitgtk4 dbus-glib -y
 
 #### OpenSUSE
-    sudo zipper install meson liblightdm-gobject-1-0 gtk3 libwebkit2gtk-4_0-37 dbus-1-glib -y
+    sudo zypper -n install meson lightdm-gobject-devel gtk3-devel libwebkit2gtk-4_0-37 dbus-1-glib-devel \
+    webkit2gtk3-devel  webkit2gtk3-soup2-devel
 
 
 ### How To Build
@@ -60,7 +61,7 @@ sudo ninja install
 
 #### One liner
 ```sh
-git clone https://github.com/Antergos/lightdm-webkit2-greeter.git /tmp/reeter && cd /tmp/greeter/build && git checkout stable && meson --prefix=/usr --libdir=lib .. && ninja && sudo ninja install
+git clone https://github.com/Antergos/lightdm-webkit2-greeter.git /tmp/greeter && cd /tmp/greeter/build && git checkout stable && meson --prefix=/usr --libdir=lib .. && ninja && sudo ninja install
 ```
 
 ## Theme JavaScript API:
